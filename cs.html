@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet">
+
+  <title> Tip Calculator </title>
+  <script defer src="script.js"> </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+
+<body onload="initMap()">
+  <!--<div  class="effect" id="particles-js"></div>-->
+  <div class="container-fluid" id="bodyFont" style="margin-top: 50px;">
+    <div class="row">
+
+      <div class="col-4">
+        <div id="error"></div>
+      </div>
+
+      <div class="col-4">
+        <div class="row">
+          <h1 id="boldFont">T i p &nbsp;  <span id="Calculator">C a l c u l a t o r</span></h1>
+        </div>
+
+        <form id="TheForm">
+          <div class="row">
+            <div class="form-group">
+
+              <div class="row"  style="margin-top: 30px;">
+                <div class="col-7">
+                  <label for="billAmount1">How much was the bill?</label>
+                </div>
+                <div class="col-5">
+                  <input id="billAmount" type="text" class="form-control" placeholder="Bill Amount">
+                </div>
+              </div>
+
+              <div class="row" id="spacing">
+                <div class="col-10">
+                  <label for"tipTarget"></label>
+                  <select class="form-control" id="tipTarget">
+                    <option selected value='0'>What type of service?</option>
+                    <option> Restaurant </option>
+                    <option> Taxi </option>
+                    <option> Coffee Shop </option>
+                    <option> Fast food </option>
+                    <option> Other </option>
+                  </select>
+                  <br>
+                </div>
+                <div class="col-2 text-right">
+                  <br>
+                  <button type="button" class="btn btn-primary" onclick="getLocation()">L</button>
+                </div>
+              </div>
+
+              <div class="row" id="spacing">
+                <div class="col-7">
+                  <label for="serviceQuality">How was the service?</label>
+                </div>
+                <div class="col-5">
+                  <select class="form-control" id="serviceQuality"> // Service Amount input <!-- Service Quality input-->
+                    <option selected value='0'> Service Quality </option>
+                    <option value='0.3'>  30% - Excellent </option>
+                    <option value='0.2'>  20% - Good </option>
+                    <option value='0.15'> 15% - Fair </option>
+                    <option value='0.05'>  5% - Bad  </option>
+                  </select>
+                  <div class="col-7 text-right"> or </div>
+                  <input class="form-control" id="servicePercentage" type='text' placeholder='Your own percentage'>
+                  <br>
+                </div>
+              </div>
+
+              <div class="row"id="spacing">
+                <div class="col-7">
+                  <label for="numberOfPeople">How many people are sharing the bill?</label>
+                </div>
+                <div class="col-5">
+                  <input class="form-control" id="numberOfPeople" type='text' placeholder='Number of People'>
+                </div>
+              </div>
+
+              <br>
+              <div class="col-12 text-center">
+                <button type="button" class="btn btn-primary" onclick="calculate()">calculate!</button>
+              </div>
+
+              <div id="totalTip">
+                $<span id="tip">0.00</span>
+                <small id="each">each</small><br>
+                $<span id="totalA">0.00</span>
+                <small id="inTotal">total</small>
+              </div>
+
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<p id="demo"></p>
+<p id="curLoc"></p>
+<div id="googleMap" style="width:100%;height:720px;;margin-top: 160px;">
+
+</div>
+
+<script>
+</script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNooieT87ed3JGu7vp9cIms0uhxJveR3U&callback=myMap"></script>
+  <script src="https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyCNooieT87ed3JGu7vp9cIms0uhxJveR3U"></script>
+  <script src="particles.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script
+</body>
+</html>
+
+/*<script>
+// Calculate tips
+//function calculate(){
+//var billAmount = Number(document.getElementById("billAmount").value);
+//var serviceQuality = Number(document.getElementById("serviceQuality").value);
+var numberOfPeople = Number(document.getElementById("numberOfPeople").value);
+
+total = (billAmount*serviceQuality)/numberOfPeople;
+
+total = total.toFixed(2);
+totalA = billAmount + Number(total);
+document.getElementById("tip").innerHTML = total; //show tip
+document.getElementById("totalA").innerHTML = totalA; //show tip
+}
