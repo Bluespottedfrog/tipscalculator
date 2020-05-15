@@ -1,0 +1,6 @@
+
+function calculate(){
+  var billAmount = Number(document.getElementById("billAmount").value)
+  var serviceQuality = Number(document.getElementById("serviceQuality").value)
+  var servicePercentage = Number(document.getElementById("servicePercentage").value)/100
+  var numberOfPeople = Number(document.getElementById("numberOfPeople").value)
