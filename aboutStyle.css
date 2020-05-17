@@ -1,0 +1,40 @@
+.ggfont {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#bodyFont, #boldFont{
+  font-family: 'Roboto Condensed', sans-serif;
+  color: white;
+
+}
+
+#boldFont{
+  font-weight: bold;
+}
+
+#Calculator{
+  color: #457475;
+}
+
+body{
+  background-color: black;
+}
+
+#spacing{
+  margin-top: 20px;
+}
+
+.effect{
+  opacity: 20%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.background{
+  position: absolute;
+  top: 0;
+  left:0;
+  opacity: 0.5;
+}

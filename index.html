@@ -21,19 +21,16 @@
 <!-- hijacking: on/off - animation: none/scaleDown/rotate/gallery/catch/opacity/fixed/parallax -->
 
 <body data-hijacking="off" data-animation="scaleDown" onload="initMap()">
-	<section class="cd-section visible">
+	<div class="container-fluid d-lg-block d-none" style="padding: 0; margin: 0;">
+	<section class="container-fluid cd-section visible">
 
 		<!-- Calculator Body -->
-		<div>
+		<div class="container-fluid">
 			<canvas class="background"></canvas>
-		  <div class="container-fluid" id="bodyFont" style="margin-top: 50px; height: 100vh;">
-		    <div class="row">
+		  <div class="container-fluid d-flex justify-content-center" id="bodyFont" style="margin-top: 50px; height: 100vh;">
+		    <div class="row" style="margin-top: 5rem;">
 
-		      <div class="col-4">
-		        <div id="error"></div>
-		      </div>
-
-		      <div class="col-4" id="calculatorContent">
+		      <div class="col-12">
 		        <div class="row">
 		          <h1 id="boldFont" style="font-size: 30pt;">T i p &nbsp;  <span id="Calculator">C a l c u l a t o r</span></h1>
 		        </div>
@@ -46,8 +43,9 @@
 		                <div class="col-7">
 		                  <label for="billAmount1">How much was the bill?</label>
 		                </div>
-		                <div class="col-5">
-		                  <input id="billAmount" type="text" class="form-control" placeholder="Bill Amount">
+
+		                <div class="col-5 d-inline-flex">
+		                  <input id="billAmount" type="text" class="form-control" style="width: 10rem;" placeholder="Bill Amount">
 		                </div>
 		              </div>
 
@@ -55,7 +53,7 @@
 		                <div class="col-10">
 		                  <label for"tipTarget"></label>
 		                  <select class="form-control" id="tipTarget">
-		                    <option selected value='0' style="font-size: 10rem;">What type of service?</option>
+		                    <option selected value='0'>What type of service?</option>
 		                    <option> Restaurant </option>
 		                    <option> Taxi </option>
 		                    <option> Coffee Shop </option>
@@ -88,7 +86,7 @@
 		                </div>
 		              </div>
 
-		              <div class="row"id="spacing">
+		              <div class="row" id="spacing">
 		                <div class="col-7">
 		                  <label for="numberOfPeople">How many people are sharing the bill?</label>
 		                </div>
@@ -114,16 +112,20 @@
 		        </form>
 
 		      </div>
-
+								<a class="about" href="about.html"><p>About this page</p></a>
 		    </div>
 
 		  </div>
+
 		</div>
 	</section>
 
 	<section class="cd-section">
-		<div id="googleMap" style="width:100%;height:100vh;margin-top: 160px;"></div>
+		<div id="googleMap" style="width: 100%; height:100vh; padding: 0; margin: 0;">
+		</div>
 	</section>
+
+
 
 
 	<nav>
@@ -132,6 +134,7 @@
 			<li><a href="#0" class="cd-next">Prev</a></li>
 		</ul>
 	</nav>
+</div>
 <!-- .cd-vertical-nav -->
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/velocity.min.js"></script>

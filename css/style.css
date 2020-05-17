@@ -8,7 +8,6 @@ Primary style
 }
 
 html {
-  font-size: 62.5%;
 }
 
 body {
@@ -251,6 +250,17 @@ Main Components
   height: 100%;
   position: absolute;
   z-index: 2;
+}
+
+.about{
+  opacity: 100%;
+  transition: opacity 0.5s linear;
+  z-index: 1;
+}
+
+.about:hover{
+  opacity: 50%;
+  z-index: 1;
 }
 
 .background{
